@@ -5,9 +5,10 @@ public class PanaderoArtesanal extends Empleado {
     protected float bandejas;
     protected float duracion;
 
-    public PanaderoArtesanal(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp) {
-        super(nombre, documentoIdentidad, codigoUnico, minutosDisp);
+    public PanaderoArtesanal(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp, ElTrigal ownedByElTrigal) {
+        super(nombre, documentoIdentidad, codigoUnico, minutosDisp, ownedByElTrigal);
     }
+
 
     //getter, setter
 
