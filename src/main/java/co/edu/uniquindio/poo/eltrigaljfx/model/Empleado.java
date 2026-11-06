@@ -5,15 +5,16 @@ public abstract class Empleado {
     protected String documentoIdentidad;
     protected String codigoUnico;
     protected int minutosDisp;
+    private ElTrigal ownedByElTrigal;
 
-    public Empleado(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp) {
+    public Empleado(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp, ElTrigal ownedByElTrigal) {
         this.nombre = nombre;
         this.documentoIdentidad = documentoIdentidad;
         this.codigoUnico = codigoUnico;
         this.minutosDisp = minutosDisp;
+        this.ownedByElTrigal = ownedByElTrigal;
     }
     //getter, setters
-
     public String getNombre() {
         return nombre;
     }
@@ -44,6 +45,14 @@ public abstract class Empleado {
 
     public void setMinutosDisp(int minutosDisp) {
         this.minutosDisp = minutosDisp;
+    }
+
+    public ElTrigal getOwnedByElTrigal() {
+        return ownedByElTrigal;
+    }
+
+    public void setOwnedByElTrigal(ElTrigal ownedByElTrigal) {
+        this.ownedByElTrigal = ownedByElTrigal;
     }
 
     //metodo abstracto
