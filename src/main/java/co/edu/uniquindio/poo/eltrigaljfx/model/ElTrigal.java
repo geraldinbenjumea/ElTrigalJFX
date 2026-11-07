@@ -123,7 +123,7 @@ public class ElTrigal {
     //1.registrar un pedido
     public String registrarPedido (Pedido pedido){     //Parte create del CRUD, más completa
         pedido.getEstadoPedido().equals(EstadoPedido.PENDIENTE);
-        if(pedido.cant_Disponible<0){
+        if(pedido.cant_Disponible<=0){
             throw new IllegalArgumentException("La cantidad de panes debe ser mayor a cero.");
         }
         if(buscarPedido(pedido.getCodigo()).isPresent()){
@@ -152,9 +152,11 @@ public class ElTrigal {
                 ))
                 .orElseThrow(() -> new IllegalStateException
                         ("Ningún panadero dispone de tiempo suficiente para atender el pedido."));
+        float tiempoRequerido = mejorPanadero.calcularTiempo(pedido.getTipoPan(), pedido.getCant_Disponible());
+        pedido.setMinutosReservados(tiempoRequerido);
+        mejorPanadero.setMinutosDisp(mejorPanadero.getMinutosDisp() - tiempoRequerido);
         pedido.setCodigoEmpleado(mejorPanadero.getCodigoUnico());
         pedido.setEstadoPedido(EstadoPedido.ASIGNADO);
-        float tiempoDisponible= mejorPanadero.minutosDisp- mejorPanadero.calcularTiempo(pedido.tipoPan, pedido.getCant_Disponible());
         return "Se ha asignado al panadero: "+mejorPanadero;
     }
 

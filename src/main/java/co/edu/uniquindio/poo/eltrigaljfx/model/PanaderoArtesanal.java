@@ -30,10 +30,11 @@ public class PanaderoArtesanal extends Empleado {
 
     @Override
     public float calcularTiempo(TiposPan tiposPan, int cantidadPanes) {
-        bandejas= cantidadPanes/12;
-        if (pedido.getTipoPan().equals(TiposPan.TRADICIONAL)) {
-            duracion= duracion+ bandejas*30;
-        } else if (pedido.getTipoPan().equals(TiposPan.INTEGRAL)) {
+        bandejas = (float) Math.ceil((double) cantidadPanes / 12.0);
+        duracion=0;
+        if (tiposPan.equals(TiposPan.TRADICIONAL)) {
+            duracion = duracion + bandejas * 30;
+        } else if (tiposPan.equals(TiposPan.INTEGRAL)) {
             duracion = duracion + bandejas * 40;
         }
         return duracion;

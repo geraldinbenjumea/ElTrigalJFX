@@ -4,12 +4,12 @@ public abstract class Empleado {
     protected String nombre;
     protected String documentoIdentidad;
     protected String codigoUnico;
-    protected int minutosDisp;
+    protected float minutosDisp;
     private ElTrigal ownedByElTrigal;
     protected Pedido pedido;
 
     public Empleado(String nombre, String documentoIdentidad, String codigoUnico,
-                    int minutosDisp, ElTrigal ownedByElTrigal, Pedido pedido) {
+                    float minutosDisp, ElTrigal ownedByElTrigal, Pedido pedido) {
         this.nombre = nombre;
         this.documentoIdentidad = documentoIdentidad;
         this.codigoUnico = codigoUnico;
@@ -42,11 +42,11 @@ public abstract class Empleado {
         this.codigoUnico = codigoUnico;
     }
 
-    public int getMinutosDisp() {
+    public float getMinutosDisp() {
         return minutosDisp;
     }
 
-    public void setMinutosDisp(int minutosDisp) {
+    public void setMinutosDisp(float minutosDisp) {
         this.minutosDisp = minutosDisp;
     }
 

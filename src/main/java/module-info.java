@@ -2,6 +2,7 @@ module co.edu.uniquindio.poo.eltrigaljfx {
     requires javafx.controls;
     requires javafx.fxml;
 
+
     // Abrir model globalmente para JavaFX y JUnit
     opens co.edu.uniquindio.poo.eltrigaljfx.model;
     exports co.edu.uniquindio.poo.eltrigaljfx.model;
