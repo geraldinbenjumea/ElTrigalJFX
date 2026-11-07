@@ -5,10 +5,10 @@ public class PanaderoArtesanal extends Empleado {
     protected float bandejas;
     protected float duracion;
 
-    public PanaderoArtesanal(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp, ElTrigal ownedByElTrigal) {
-        super(nombre, documentoIdentidad, codigoUnico, minutosDisp, ownedByElTrigal);
+    public PanaderoArtesanal(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp,
+                             ElTrigal ownedByElTrigal, Pedido pedido) {
+        super(nombre, documentoIdentidad, codigoUnico, minutosDisp, ownedByElTrigal, pedido);
     }
-
 
     //getter, setter
 
@@ -29,7 +29,13 @@ public class PanaderoArtesanal extends Empleado {
     }
 
     @Override
-    public String calcularTiempo() {
-        return "";
+    public float calcularTiempo(TiposPan tiposPan, int cantidadPanes) {
+        bandejas= cantidadPanes/12;
+        if (pedido.getTipoPan().equals(TiposPan.TRADICIONAL)) {
+            duracion= duracion+ bandejas*30;
+        } else if (pedido.getTipoPan().equals(TiposPan.INTEGRAL)) {
+            duracion = duracion + bandejas * 40;
+        }
+        return duracion;
     }
 }

@@ -6,15 +6,19 @@ public class Pedido {
     protected TiposPan tipoPan;
     protected int cant_Disponible;
     protected EstadoPedido estadoPedido;
+    protected String codigoEmpleado;
+    protected float minutosReservados;
     private ElTrigal ownedByElTrigal;
 
     public Pedido(String codigo, Cliente propietario, TiposPan tipoPan, int cant_Disponible,
-                  EstadoPedido estadoPedido, ElTrigal ownedByElTrigal) {
+                  EstadoPedido estadoPedido, String codigoEmpleado, float minutosReservados, ElTrigal ownedByElTrigal) {
         this.codigo = codigo;
         this.propietario = propietario;
         this.tipoPan = tipoPan;
         this.cant_Disponible = cant_Disponible;
         this.estadoPedido = estadoPedido;
+        this.codigoEmpleado=codigoEmpleado;
+        this.minutosReservados=minutosReservados;
         this.ownedByElTrigal = ownedByElTrigal;
     }
     //getters, setters
@@ -56,6 +60,22 @@ public class Pedido {
 
     public void setEstadoPedido(EstadoPedido estadoPedido) {
         this.estadoPedido = estadoPedido;
+    }
+
+    public String getCodigoEmpleado() {
+        return codigoEmpleado;
+    }
+
+    public void setCodigoEmpleado(String codigoEmpleado) {
+        this.codigoEmpleado = codigoEmpleado;
+    }
+
+    public float getMinutosReservados() {
+        return minutosReservados;
+    }
+
+    public void setMinutosReservados(float minutosReservados) {
+        this.minutosReservados = minutosReservados;
     }
 
     public ElTrigal getOwnedByElTrigal() {

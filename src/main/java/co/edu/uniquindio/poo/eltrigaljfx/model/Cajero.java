@@ -4,9 +4,11 @@ public class Cajero extends Empleado {
 
     protected boolean cajaAsignada;
 
-    public Cajero(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp) {
-        super(nombre, documentoIdentidad, codigoUnico, minutosDisp);
+    public Cajero(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp,
+                  ElTrigal ownedByElTrigal, Pedido pedido) {
+        super(nombre, documentoIdentidad, codigoUnico, minutosDisp, ownedByElTrigal, pedido);
     }
+
 
     //getter, setter
     public boolean isCajaAsignada() {
@@ -18,7 +20,7 @@ public class Cajero extends Empleado {
     }
 
     @Override
-    public String calcularTiempo() {
-        return "";
+    public float calcularTiempo(TiposPan tipoPan, int cantidadPanes) {
+        return -1; // Retorna -1 porque los cajeros no producen
     }
 }

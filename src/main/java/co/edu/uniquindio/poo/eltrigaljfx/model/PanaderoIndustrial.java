@@ -3,11 +3,15 @@ package co.edu.uniquindio.poo.eltrigaljfx.model;
 public class PanaderoIndustrial extends Empleado {
 
     protected float lote;
-    protected float preparacion;
+    protected float preparacion =20;
+    protected float duracionTotal;
 
-    public PanaderoIndustrial(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp) {
-        super(nombre, documentoIdentidad, codigoUnico, minutosDisp);
+    public PanaderoIndustrial(String nombre, String documentoIdentidad, String codigoUnico,
+                              int minutosDisp, ElTrigal ownedByElTrigal, Pedido pedido) {
+        super(nombre, documentoIdentidad, codigoUnico, minutosDisp, ownedByElTrigal, pedido);
     }
+
+
 
     //getter, setter
     public float getLote() {
@@ -26,8 +30,22 @@ public class PanaderoIndustrial extends Empleado {
         this.preparacion = preparacion;
     }
 
-    @Override
-    public String calcularTiempo() {
-        return "";
+    public float getDuracionTotal() {
+        return duracionTotal;
     }
-}
+
+    public void setDuracionTotal(float duracionTotal) {
+        this.duracionTotal = duracionTotal;
+    }
+
+    @Override
+    public float calcularTiempo(TiposPan tiposPan, int cantidadPanes) {
+        lote = cantidadPanes / 30;
+        if (pedido.getTipoPan().equals(TiposPan.TRADICIONAL)) {
+            duracionTotal = preparacion + lote * 25;
+        } else if (pedido.getTipoPan().equals(TiposPan.INTEGRAL)) {
+            duracionTotal = preparacion + lote * 35;
+        }
+        return duracionTotal;
+    }
+    }

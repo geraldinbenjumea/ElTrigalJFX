@@ -6,13 +6,16 @@ public abstract class Empleado {
     protected String codigoUnico;
     protected int minutosDisp;
     private ElTrigal ownedByElTrigal;
+    protected Pedido pedido;
 
-    public Empleado(String nombre, String documentoIdentidad, String codigoUnico, int minutosDisp, ElTrigal ownedByElTrigal) {
+    public Empleado(String nombre, String documentoIdentidad, String codigoUnico,
+                    int minutosDisp, ElTrigal ownedByElTrigal, Pedido pedido) {
         this.nombre = nombre;
         this.documentoIdentidad = documentoIdentidad;
         this.codigoUnico = codigoUnico;
         this.minutosDisp = minutosDisp;
         this.ownedByElTrigal = ownedByElTrigal;
+        this.pedido = pedido;
     }
     //getter, setters
     public String getNombre() {
@@ -55,6 +58,18 @@ public abstract class Empleado {
         this.ownedByElTrigal = ownedByElTrigal;
     }
 
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
     //metodo abstracto
-    public abstract String calcularTiempo();
+    public abstract float calcularTiempo(TiposPan tiposPan, int cantidadPanes);
+    public void devolverMinutos(float minutos) {
+        this.minutosDisp += minutos;
+    }
+
 }
