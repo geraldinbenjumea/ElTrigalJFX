@@ -1,4 +1,25 @@
 package co.edu.uniquindio.poo.eltrigaljfx.app;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Main {
+import java.io.IOException;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/co/edu/uniquindio/poo/eltrigaljfx/hello-view.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load(), 850, 600);
+
+        stage.setTitle("Panadería El Trigal - Sistema de Gestión");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
 }
